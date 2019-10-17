@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <link rel="stylesheet" href="../static/style.css"/>
+  <title>Chokomate Feedback</title>
+</head>
+<body>
+  <div class="container">
+    <img src="../static/logo2.png" alt="choko" class="logo"/>
+    {% if message %}
+    <p class="message">{{ message | safe }}</p>
+    {% endif %}
+    <form action="/submit" method="POST">
+      <div class="form-group">
+        <h3>Customer Name</h3>
+        <input type="text" name="customer" placeholder="name of customer"/>
+      </div>
+      <div class="form-group">
+          <h3>Customer Email</h3>
+          <input type="text" name="email" placeholder="email of customer"/>
+      </div>
+      <div class="form-group">
+        <h3>Products</h3>
+        <select name="product">
+          <option value="">Select Products</option>
+          <option value="Groundnut oil">Groundnut oil</option>
+          <option value="Groundnut cake">Groundnut cake</option>
+          <option value="Broilers">Broilers</option>
+          <option value="Eggs">Eggs</option>
+        </select>
+      </div>
+      <div class="form-group">
+          <h3>Please drop your ratings</h3>
+          <input type="radio" name="rating" value="1"/> 1
+          <input type="radio" name="rating" value="2"/> 2
+          <input type="radio" name="rating" value="3"/> 3
+          <input type="radio" name="rating" value="4"/> 4
+          <input type="radio" name="rating" value="5"/> 5
+          <input type="radio" name="rating" value="6"/> 6
+          <input type="radio" name="rating" value="7"/> 7
+          <input type="radio" name="rating" value="8"/> 8
+          <input type="radio" name="rating" value="9"/> 9
+          <input type="radio" name="rating" value="10" checked/> 10
+        </div>
+        <div class="form-group">
+          <h3>Comment about your feeedback</h3>
+           <textarea name="comments" placeholder="Tell us what you liked and/or did not like" cols="30" rows="10"></textarea>
+        </div>
+        <input type="submit" value="submit" class="btn"/>
+    </form>
+  </div>
+</body>
+</html>
